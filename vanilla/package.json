@@ -1,0 +1,19 @@
+{
+  "name": "@headless-profeed/vanilla",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "8.3.5"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source": "Authored fixture posts and SVG, created by Accomplice AB; no customer or third-party media.",
+  "testedOn": "2026-10-24",
+  "node": "v22.23.4",
+  "versions": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "vite": "8.3.5",
+    "astro": "7.4.2"
+  },
+  "checksums": {
+    "nextjs.png": "f9d745085dce4bc2baec4eae3ae5fc372c43e2295cbde8abafe1b9a3f6052e3b",
+    "react.png": "4cda2989ff52f1b71b7754178f8e030be092ea66f19dd623853041b3d11a7500",
+    "vanilla.png": "acac1dd982e30e2df0892f38510c4cad48298a3f7ae6fdef03c83a787359d410",
+    "astro.png": "8c5891e83768d669d30fbcb00fe763188abf9e5c654a04b770b935c49ee0dc55"
+  }
+}

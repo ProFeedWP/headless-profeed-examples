@@ -1,0 +1,23 @@
+---
+import { configuration, readFeed } from '../../lib/feed.mjs';
+import '../style.css';
+const config=configuration({mode:import.meta.env.PROFEED_MODE,feedId:import.meta.env.PROFEED_FEED_ID,
+  key:import.meta.env.PROFEED_SECRET_KEY,base:import.meta.env.PROFEED_API_URL});
+const result=await readFeed(config);
+if(result.state==='pending'||result.state==='error')
+  throw new Error('Headless Profeed build stopped: '+result.message+' Retry after '+(result.retryAfter||30)+' seconds.');
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>LinkedIn feed · Astro example</title></head>
+<body><main><p class="eyebrow">Headless Profeed / Astro</p><h1>Your company. Your feed.</h1>
+<p class="intro">Public LinkedIn company posts, rendered at build time with your own design.</p>
+<section aria-label="Company posts" data-state={result.state}>
+{result.message&&<p class="status">{result.message}</p>}
+{result.stale&&<p>These posts were cached at build time. Rebuild to update this page.</p>}
+<div class="feed">{result.posts.map(post=><article class="post"><div class="eyebrow">Company update</div>
+{post.date&&<time datetime={post.date}>{post.date}</time>}<p>{post.text}</p>
+{post.image&&<img src={post.image} alt="" loading="lazy" referrerpolicy="no-referrer"/>}
+{post.url&&<a href={post.url} target="_blank" rel="noreferrer">View on LinkedIn ↗</a>}</article>)}</div>
+</section><footer>Rebuild to publish refreshed posts. Screenshots use authored sample posts.</footer>
+<nav class="links"><a href="https://headless.profeedwp.com/guides/astro-linkedin-feed">Integration guide</a><a href="https://headless.profeedwp.com/docs">API quickstart</a></nav>
+</main></body></html>
+

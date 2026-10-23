@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkedIn feed · Plain JavaScript example</title>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Headless Profeed / Plain JavaScript</p>
+      <h1>Your company. Your feed.</h1>
+      <p class="intro">
+        Public LinkedIn company posts, rendered in your browser with your own
+        design.
+      </p>
+      <section id="feed" aria-label="Company posts" aria-live="polite">
+        <p class="status" id="status"></p>
+        <div id="posts" class="feed"></div>
+        <button id="retry" hidden>Try again</button>
+      </section>
+      <footer>Screenshots use authored sample posts.</footer>
+      <nav class="links">
+        <a
+          href="https://headless.profeedwp.com/guides/linkedin-company-posts-api"
+          >Integration guide</a
+        ><a href="https://headless.profeedwp.com/docs">API quickstart</a>
+      </nav>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

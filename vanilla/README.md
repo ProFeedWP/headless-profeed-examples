@@ -1,5 +1,13 @@
 # Plain JavaScript LinkedIn feed
 
+## Six feed designs for AI website projects
+
+Open `/layouts/index.html?layout=card-grid` after starting the dev server to explore the sample-only gallery. Supported layouts: `card-grid`, `news-list`, `featured-update`, `image-gallery`, `dark-carousel`, and `company-timeline`. These previews use authored posts and SVG artwork; they never read credentials or call a feed API. The state selector lets you try empty, pending, missing-field and failure examples. Carousel controls support keyboard and touch navigation, with no auto-rotation.
+
+Open `/layouts/connected.html?layout=card-grid` to use the same renderer with the explicit demo/customer configuration below. It calls the existing `readFeed` helper and passes its normalized result to `renderLayout`; missing customer settings remain an error. The default `/` example remains available.
+
+The six design prompts live in `layouts/designs.json`. Complete prompts combine `layouts/shared-prompt.txt` with the selected design's `prompt`. Follow-up prompts refine the design after the initial integration. These are platform-neutral reference implementations, not claimed outputs from a particular AI builder. [Guide, prompts, and previews](https://headless.profeedwp.com/guides/ai-website-linkedin-feed).
+
 Use Node **22.23.4** or later. From this directory:
 
 ```sh

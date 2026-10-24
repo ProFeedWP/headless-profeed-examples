@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Feed design preview · Headless Profeed</title>
+    <link rel="stylesheet" href="./layouts.css" />
+  </head>
+  <body>
+    <main class="preview-page">
+      <header class="preview-heading">
+        <p class="layout-eyebrow">Headless Profeed / Design examples</p>
+        <h1 id="design-title">Company updates</h1>
+        <p>
+          Authored sample posts and artwork. This preview makes no feed API
+          requests.
+        </p>
+      </header>
+      <div id="feed-layout" aria-live="polite"></div>
+      <details class="sample-controls">
+        <summary>Try other feed states</summary>
+        <label
+          >Sample content
+          <select id="sample-state">
+            <option value="ready">Example posts</option>
+            <option value="empty">No published posts</option>
+            <option value="optional">Missing images and dates</option>
+            <option value="long">Long post text</option>
+            <option value="pending">Collection pending</option>
+            <option value="unauthorized">Invalid key</option>
+            <option value="forbidden">Origin or access denied</option>
+            <option value="limited">Rate limit</option>
+            <option value="unavailable">Temporary failure</option>
+          </select></label
+        >
+      </details>
+      <footer>
+        Example implementation by Accomplice AB.
+        <a
+          href="https://headless.profeedwp.com/guides/ai-website-linkedin-feed"
+          target="_blank"
+          rel="noreferrer"
+          >Guide and prompts ↗</a
+        >
+      </footer>
+    </main>
+    <script type="module" src="./viewer.mjs"></script>
+  </body>
+</html>

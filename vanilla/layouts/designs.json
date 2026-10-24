@@ -1,0 +1,50 @@
+[
+  {
+    "id": "card-grid",
+    "title": "Card grid",
+    "description": "A balanced homepage section with four cards. Two columns on desktop, one on mobile.",
+    "useCase": "Company homepages and simple latest-news sections.",
+    "prompt": "Use a clean grid of four equally sized post cards, with two columns on desktop and one on mobile. Include optional images, a date, post text, and an original-post link. Use my site's existing card styles, border radius, type scale, and spacing. Align the links along the bottom of the cards.",
+    "followUp": "Refine the grid to match the cards already used elsewhere on my website. Keep the same fonts, border treatments, spacing, and accent color without changing the feed logic."
+  },
+  {
+    "id": "news-list",
+    "title": "Compact news list",
+    "description": "Four text-led updates with dates and simple separators, designed to fit smaller sections.",
+    "useCase": "Sidebars, company news pages, and compact homepage sections.",
+    "prompt": "Create a compact list of four latest updates. Use dates, readable post excerpts, subtle row separators, and links to the original LinkedIn posts. Omit images in this layout. Keep the section visually quiet and easy to scan, and stack dates above the text on narrow screens.",
+    "followUp": "Make this news list work inside a narrow sidebar. Reduce the spacing, keep the dates readable, and prevent long post text or links from causing horizontal scrolling."
+  },
+  {
+    "id": "featured-update",
+    "title": "Featured update",
+    "description": "One prominent post takes the lead, with three smaller updates alongside it.",
+    "useCase": "Editorial homepages and company announcement sections.",
+    "prompt": "Make the first post a featured update with a larger image when available and more prominent typography. Place the next three updates in a smaller supporting column. Stack the featured post above the others on mobile. Preserve the API's post order and do not invent article titles or rewrite post text.",
+    "followUp": "Give the featured update more visual emphasis using my existing brand typography and spacing. Keep the three supporting updates compact, and make the whole section feel like part of my site's editorial design."
+  },
+  {
+    "id": "image-gallery",
+    "title": "Image gallery",
+    "description": "An image-led arrangement with readable captions and a fallback for posts without media.",
+    "useCase": "Design studios, product teams, and visually led company sites.",
+    "prompt": "Build an image-led gallery of four posts in a two-column grid, stacking to one column on mobile. Use a consistent image aspect ratio, readable post captions, dates, and original-post links. For posts without an image, show a styled text card using my brand colors rather than a broken image or invented photograph. Never hide the post text behind hover-only interactions.",
+    "followUp": "Improve the gallery's image cropping and text-card fallback. Keep captions readable on touch screens, preserve the full accessible post text, and use my website's existing color palette."
+  },
+  {
+    "id": "dark-carousel",
+    "title": "Dark carousel",
+    "description": "A dark, horizontal feed with manual controls and keyboard navigation. Nothing auto-rotates.",
+    "useCase": "High-contrast landing pages and product launch sections.",
+    "prompt": "Create a dark horizontal carousel containing four posts. Use readable contrast, previous and next buttons, touch scrolling, visible keyboard focus, and arrow-key navigation. Show two cards at a time when space allows and one on mobile. Do not auto-rotate, trap focus, or require hover to read content. Respect reduced-motion preferences and keep links usable.",
+    "followUp": "Refine the carousel for keyboard and touch users. Make the navigation buttons' disabled states clear, announce which cards are visible, and keep focused content in view without automatic rotation."
+  },
+  {
+    "id": "company-timeline",
+    "title": "Company timeline",
+    "description": "A vertical series of company updates that keeps the API's order and handles missing dates.",
+    "useCase": "About pages, company journals, and ongoing progress updates.",
+    "prompt": "Present four posts as a vertical company timeline, preserving the order returned by the API. Use subtle date markers, post text, optional images, and links to the original posts. If a date is missing, omit it without inventing one. Keep the timeline readable on mobile and use the existing site's typography and accent color.",
+    "followUp": "Make the timeline more compact without losing readability. Align date markers consistently, reduce unnecessary decoration, and let long post text wrap naturally on mobile."
+  }
+]

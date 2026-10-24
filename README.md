@@ -38,6 +38,10 @@ Each implementation renders up to four posts, treats text as text, validates lin
 
 ## Result previews
 
+### Six prompt-ready feed designs
+
+The [AI website guide](https://headless.profeedwp.com/guides/ai-website-linkedin-feed) pairs copyable prompts with six working designs: a card grid, compact news list, featured update, image gallery, dark carousel, and company timeline. Run the plain JavaScript project and open `/layouts/index.html` for credential-free sample previews, or `/layouts/connected.html` for explicit demo/customer API configuration. Source, prompts and authored artwork are in [vanilla/layouts](vanilla/layouts). These are reference implementations, not claims of compatibility tests in a specific builder.
+
 These screenshots come from the production examples using **authored sample posts and an authored SVG**. They are not customer data or a promise of particular LinkedIn content. [Provenance and checksums](screenshots/provenance.json) records the tested tool versions. The screenshot, source and website snapshot are pinned together by the website's imported repository commit.
 
 ### Next.js

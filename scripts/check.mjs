@@ -5,6 +5,8 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import assert from "node:assert/strict";
 import { chromium } from "@playwright/test";
+import { checkLayouts } from "./check-layouts.mjs";
+import { layoutIds } from "../vanilla/layouts/render-layouts.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const names = process.argv.slice(2).length
@@ -70,28 +72,26 @@ const fixture = createServer((req, res) => {
   const posts =
     scenario === "empty"
       ? []
-      : texts
-          .concat("This fifth post should not render.")
-          .map((text, i) => ({
-            id: "sample-" + i,
-            text:
-              scenario === "unsafe"
-                ? "<img src=x onerror=window.INJECTED=true>"
-                : text,
-            ...(i !== 3 && {
-              date_published: "2026-10-" + (20 + i) + "T10:00:00Z",
-              post_url: "https://www.linkedin.com/company/profeedwp/",
+      : texts.concat("This fifth post should not render.").map((text, i) => ({
+          id: "sample-" + i,
+          text:
+            scenario === "unsafe"
+              ? "<img src=x onerror=window.INJECTED=true>"
+              : text,
+          ...(i !== 3 && {
+            date_published: "2026-10-" + (20 + i) + "T10:00:00Z",
+            post_url: "https://www.linkedin.com/company/profeedwp/",
+          }),
+          ...(i === 1 &&
+            scenario !== "unsafe" && {
+              image_url:
+                "http://127.0.0.1:" + fixture.address().port + "/image.svg",
             }),
-            ...(i === 1 &&
-              scenario !== "unsafe" && {
-                image_url:
-                  "http://127.0.0.1:" + fixture.address().port + "/image.svg",
-              }),
-            ...(scenario === "unsafe" && {
-              post_url: "javascript:alert(1)",
-              image_url: "javascript:alert(1)",
-            }),
-          }));
+          ...(scenario === "unsafe" && {
+            post_url: "javascript:alert(1)",
+            image_url: "javascript:alert(1)",
+          }),
+        }));
   res.end(JSON.stringify({ success: true, posts, refresh: { stale: false } }));
 });
 await new Promise((resolve) => fixture.listen(0, "127.0.0.1", resolve));
@@ -279,6 +279,10 @@ try {
           }
         }
       }
+      if (name === "vanilla")
+        await checkLayouts(page, url, root, (value) => {
+          scenario = value;
+        });
       if (name === "nextjs") await scan(path.join(cwd, ".next/static"));
       else await scan(path.join(cwd, "dist"));
     } finally {
@@ -314,7 +318,13 @@ try {
     );
   }
   const checksums = {};
-  for (const name of ["nextjs", "react", "vanilla", "astro"]) {
+  for (const name of [
+    "nextjs",
+    "react",
+    "vanilla",
+    "astro",
+    ...layoutIds.map((id) => "ai-" + id),
+  ]) {
     try {
       checksums[name + ".png"] = createHash("sha256")
         .update(await readFile(path.join(root, "screenshots", name + ".png")))
